@@ -28,8 +28,7 @@ ENV NODE_ENV=production
 ENV HOME=/home/agent
 ENV HERMES_HOME=/home/agent/.hermes
 RUN mkdir -p /home/agent && \
-    ln -sf /opt/data /home/agent/.hermes && \
-    chown -R agent:agent /home/agent
+    ln -sf /opt/data /home/agent/.hermes
 EXPOSE 6060
 
 CMD ["node", "dist/server/index.js"]
