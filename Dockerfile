@@ -27,7 +27,9 @@ RUN npm run build && npm prune --omit=dev
 ENV NODE_ENV=production
 ENV HOME=/home/agent
 ENV HERMES_HOME=/home/agent/.hermes
-
+RUN mkdir -p /home/agent && \
+    ln -sf /opt/data /home/agent/.hermes && \
+    chown -R agent:agent /home/agent
 EXPOSE 6060
 
 CMD ["node", "dist/server/index.js"]
